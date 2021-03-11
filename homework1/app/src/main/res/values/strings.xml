@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">ClassTest</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="third_fragment_label">Third Fragment</string>
+    <string name="touch_activity_label">touch Activity</string>
+
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="start">Start HomeWork!</string>
+
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="hello_third_fragment">Hello third fragment. Arg: %1$s</string>
+
+
+    <string name="hello_world">Hello World!</string>
+    <string name="student_slogan">逆流而上，悦我生涯！</string>
+    <string name="student_name">孙悦</string>
+    <string name="student_id">学号 - 119020910274</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="search_text">搜索</string>
+
+</resources>
