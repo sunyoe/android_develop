@@ -2,13 +2,18 @@
 
 ByteDance Lesson：Android Develop
 
-# HomeWork1
+## HomeWork1
 
 - RecyclerView
 - SearchAdapter
 
-# HomeWork2
+## HomeWork2
 
 - Fragment
 - Animation
 - ViewPage
+
+## HomeWork3
+
+- Handler
+- Paint
