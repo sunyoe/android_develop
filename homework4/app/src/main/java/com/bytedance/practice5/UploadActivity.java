@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bytedance.practice5.model.MessageListResponse;
 import com.bytedance.practice5.model.UploadResponse;
 import com.bytedance.practice5.socket.SocketActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -37,7 +38,8 @@ public class UploadActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_COVER_IMAGE = 101;
     private static final String COVER_IMAGE_TYPE = "image/*";
     private Retrofit retrofit;
-    private IApi api;
+//    private IApi api;
+    private IApi service;
     private Uri coverImageUri;
     private SimpleDraweeView coverSD;
     private EditText toEditText;
@@ -96,7 +98,7 @@ public class UploadActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         // 生成api对象
-        IApi service = retrofit.create(IApi.class);
+        service = retrofit.create(IApi.class);
     }
 
     private void getFile(int requestCode, String type, String title) {
@@ -140,30 +142,34 @@ public class UploadActivity extends AppCompatActivity {
                 "cover.png",
                 RequestBody.create(MediaType.parse("multipart/form_data"), coverImageData)
         );
-        Call<UploadResponse> call = api.submitMessage(
-                Constants.STUDENT_ID,
-                "",
-                from_part,
-                to_part,
-                content_part,
-                image_part,
-                Constants.token);
-        try {
-            Response<UploadResponse> response = call.execute();
-            if (response.isSuccessful()){
-                new Handler(getMainLooper()).post(new Runnable() {
-                    @Override
-                    public void run() {
-                        Intent intent = new Intent(UploadActivity.this, MainActivity.class);
-                        startActivity(intent);
-                        Log.d("upload", "run: back");
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Call<UploadResponse> call = service.submitMessage(
+                        Constants.STUDENT_ID,
+                        "",
+                        from_part,
+                        to_part,
+                        content_part,
+                        image_part,
+                        Constants.token);
+                try {
+                    Response<UploadResponse> response = call.execute();
+                    if (response.isSuccessful() && response.body().success){
+                        new Handler(getMainLooper()).post(new Runnable() {
+                            @Override
+                            public void run() {
+                                Log.d("upload", "run: back");
+                                Intent intent = new Intent(UploadActivity.this, MainActivity.class);
+                                startActivity(intent);
+                            }
+                        });
                     }
-                });
+                } catch(IOException e){
+                    e.printStackTrace();
+                }
             }
-
-        } catch(IOException e){
-            e.printStackTrace();
-        }
+        }).start();
     }
 
 

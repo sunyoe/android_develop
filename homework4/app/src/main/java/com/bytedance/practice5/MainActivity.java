@@ -95,7 +95,9 @@ public class MainActivity extends AppCompatActivity {
 
     public MessageListResponse baseGETRepoFromRemote(String student_id, String token){
         String urlStr =
-                String.format("https://api-sjtu-camp-2021.bytedance.com/homework/invoke/messages?student_id=%s", "519070910059");
+//                String.format("https://api-sjtu-camp-2021.bytedance.com/homework/invoke/messages?student_id=%s", "519070910059");
+                String.format("https://api-sjtu-camp-2021.bytedance.com/homework/invoke/messages", student_id);
+
         MessageListResponse result = null;
         try{
             URL url = new URL(urlStr);
