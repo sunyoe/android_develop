@@ -17,3 +17,8 @@ ByteDance Lesson：Android Develop
 
 - Handler
 - Paint
+
+## HomeWork6
+
+- image
+- videoView

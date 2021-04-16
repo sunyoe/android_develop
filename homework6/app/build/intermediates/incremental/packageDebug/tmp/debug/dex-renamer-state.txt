@@ -1,0 +1,7 @@
+#Thu Apr 15 22:09:36 CST 2021
+base.0=D\:\\Files\\bytedance\\demo_code\\chapter-7-master\\AndroidStudy\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out
+path.1=classes.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=D\:\\Files\\bytedance\\demo_code\\chapter-7-master\\AndroidStudy\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out
